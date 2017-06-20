@@ -9,6 +9,13 @@
         <%= f.input :description, :label => "商品描述", placeholder: "商品描述"%>
         <%= f.input :price, :label => "价格", placeholder: "价格" %>
         <%= f.input :quantity, :label => "库存", placeholder: "库存" %>
+        <% if @product.image.present? %>
+          <span>目前商品图</span> <br>
+            <%= image_tag(@product.image.thumb.url) %>
+        <% end %>
+        <div class="group">
+          <%= f.input :image, as: :file, :label => "图片", placeholder: "图片" %>
+        </div>
         <%= f.submit "提交", class: "btn btn-primary", data: {disable_with: "提交。。。"} %>
       <% end %>
     </div>
