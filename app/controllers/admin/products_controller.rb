@@ -10,7 +10,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new[product_params]
+    @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
       redirect_to admin_products_path, alert: "添加商品成功"
@@ -43,5 +43,4 @@ class Admin::ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:title, :description, :price, :quantity)
   end
-
 end
