@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :cart_items
   resources :orders
+  namespace :account do
+    resources :orders
+  end
   namespace :admin do
     resources :products
   end
