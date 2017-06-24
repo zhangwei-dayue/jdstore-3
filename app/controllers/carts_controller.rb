@@ -3,4 +3,8 @@ class CartsController < ApplicationController
     current_cart.clean!
     redirect_to carts_path, alert: "清空商品成功"
   end
+
+  def checkout
+    @order = Order.new
+  end
 end
