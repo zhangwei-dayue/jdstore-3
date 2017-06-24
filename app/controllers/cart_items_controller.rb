@@ -6,5 +6,4 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
     redirect_to carts_path, alert: "成功将 #{@product.title} 从购物车删除！"
   end
-
 end
