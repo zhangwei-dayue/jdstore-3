@@ -1,0 +1,21 @@
+<h2>订单列表</h2>
+<table class="table table-border">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>订单时间</th>
+      <th>购买人</th>
+      <th>订单状态</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to(order.id, order_path(order.token))%></td>
+        <td><%= order.created_at %></td>
+        <td><%= order.user.email %></td>
+        <td><%= order.aasm_state %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
